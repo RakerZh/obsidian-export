@@ -92,14 +92,18 @@ jobs:
 
   build-macos:
     name: Mac OS binary
-    needs: create-release
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        target_arch: [x86_64-apple-darwin, aarch64-apple-darwin]
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: stable
+          target: ${{ matrix.target_arch }}
           override: true
 
       - uses: actions-rs/cargo@v1
@@ -121,5 +125,5 @@ jobs:
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: target/release/obsidian-export
-          asset_name: obsidian-export_MacOS-x86_64.bin
+          asset_name: obsidian-export_${{ matrix.target_arch }}.bin
           asset_content_type: application/octet-stream
