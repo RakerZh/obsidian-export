@@ -71,7 +71,7 @@ jobs:
           override: true
       - uses: actions-rs/tarpaulin@v0.1
         with:
-          version: "latest"
+          version: "0.18.0"
           args: "--ignore-tests"
           out-type: "Html"
       - uses: actions/upload-artifact@v3
