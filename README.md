@@ -30,7 +30,7 @@ It supports most but not all of Obsidian's Markdown flavor.
 
 ## Pre-built binaries
 
-Binary releases for x86-64 processors are provided for Windows, Linux and Mac operating systems on a best-effort basis.
+Binary releases for Windows and Linux with x86-64 processors, and for Mac operating systems with aarch-64 and x86-64 processors on a best-effort basis.
 They are built with GitHub runners as part of the release workflow defined in `.github/workflows/release.yml`.
 
 The resulting binaries can be downloaded from <https://github.com/zoni/obsidian-export/releases>
